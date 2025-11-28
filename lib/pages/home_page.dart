@@ -119,11 +119,15 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                       onPressed: () {
-                        Navigator.push(
+                        //    Navega, incluindo a animação, somente se estiver
+                        //  fora da tela que irá navegar.
+                        if (context.widget is! HomePage ) {
+                          Navigator.push(
                             context, MaterialPageRoute(
-                                builder: (context) =>  HomePage(title: title,)
+                            builder: (context) => HomePage(title: title,)
                             )
-                        );
+                          );
+                        }
 
                       },
                     ),
@@ -135,8 +139,20 @@ class _HomePageState extends State<HomePage> {
                         color: Color.fromRGBO(124, 156, 191, 1)),
                     Icon(fluIcon.FluentIcons.chat_32_regular,
                         color: Color.fromRGBO(124, 156, 191, 1)),
-                    Icon(fluIcon.FluentIcons.person_32_regular,
-                        color: Color.fromRGBO(124, 156, 191, 1)),
+
+                    IconButton(
+                      icon:  Icon(
+                          fluIcon.FluentIcons.person_32_regular,
+                          color: Color.fromRGBO(124, 156, 191, 1)
+                      ),
+
+
+                      onPressed: () {
+
+
+                      },
+
+                    )
                   ],
                 ),
 
