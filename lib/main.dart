@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp>{
         theme: _currentTheme,
 
         home: LoginPage(
-            title: 'Tela Login',
+            title: 'Login',
             currentTheme: _currentTheme,
             onThemeChanged: _changeTheme,
 

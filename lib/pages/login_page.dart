@@ -35,11 +35,13 @@ class _LoginPageState extends State<LoginPage>{
 
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.deepPurpleAccent.shade100,
+        backgroundColor: Colors.lightBlueAccent.shade200,
+
         title: Text(title),
         titleTextStyle: TextStyle(
           fontFamily: 'Calibri',
-          fontSize: 22
+          //fontStyle: FontStyle.italic,
+          fontSize: 20
         ),
 
 
@@ -66,7 +68,7 @@ class _LoginPageState extends State<LoginPage>{
                 alignment: Alignment.bottomCenter,
 
                   child: Align(
-                    alignment: Alignment(0,0.4),
+                    alignment: Alignment(0,0.3),
 
                     child: SizedBox(
                       width: screenWidth/1.05,
@@ -74,10 +76,15 @@ class _LoginPageState extends State<LoginPage>{
                         child: TextFormField(
                             decoration: InputDecoration(
                               border: OutlineInputBorder(),
-                              hintText: "Email",
-                              hintStyle: TextStyle(
-                                fontFamily: "calibri",
-                                fontSize: 20
+                              labelText: "Email",
+                              labelStyle: TextStyle(
+                                fontFamily: "Calibri",
+                                fontSize: 19,
+
+                              ),
+
+                              prefixIcon: Icon(
+                                Icons.email,
                               )
 
                           ),
@@ -94,7 +101,7 @@ class _LoginPageState extends State<LoginPage>{
                   alignment: Alignment.bottomCenter,
 
                   child: Align(
-                      alignment: Alignment(0,0.62),
+                      alignment: Alignment(0,0.49),
 
                       child: SizedBox(
                         width: screenWidth/1.05,
@@ -102,10 +109,14 @@ class _LoginPageState extends State<LoginPage>{
                         child: TextFormField(
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
-                              hintText: "Senha",
-                              hintStyle: TextStyle(
+                              labelText: "Senha",
+                              labelStyle: TextStyle(
                                   fontFamily: "calibri",
                                   fontSize: 20
+                              ),
+
+                              prefixIcon: Icon(
+                                Icons.lock,
                               )
 
                           ),
@@ -116,7 +127,7 @@ class _LoginPageState extends State<LoginPage>{
           ),
 
           Align(
-            alignment: Alignment(0,0.82),
+            alignment: Alignment(0,0.7),
             
             child: TextButton(
               style: ButtonStyle(
@@ -127,23 +138,19 @@ class _LoginPageState extends State<LoginPage>{
 
               child: SizedBox(
                 width: screenWidth/2,
+                height: screenWidth/18.7,
 
-                child: ColoredBox(
-                  color: Colors.lightBlueAccent.shade400,
+                child: Text(
+                  "Login",
+                  textAlign: TextAlign.center,
 
-                  child: Text(
-                    "Login",
-                    textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16.4,
+                    fontFamily: 'Times News Roman',
+                    fontWeight: FontWeight.bold,
 
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontFamily: 'calibri',
-                      fontWeight: FontWeight.bold,
-
-                      //backgroundColor: Colors.lightBlueAccent.shade100,
-                    ),
+                    //backgroundColor: Colors.lightBlueAccent.shade100,
                   ),
-
                 ),
               ),
 
@@ -158,6 +165,53 @@ class _LoginPageState extends State<LoginPage>{
 
 
             ),
+
+          ),
+
+          Align(
+            alignment: Alignment(0, 0.84),
+
+            child: TextButton(
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(Colors.lightBlueAccent.shade100),
+                overlayColor: WidgetStatePropertyAll(Colors.blueAccent.shade400),
+                foregroundColor: WidgetStatePropertyAll(Colors.deepPurpleAccent.shade400),
+                //padding: WidgetStateProperty<EdgeInsetsGeometry>.new
+
+              ),
+
+              child: SizedBox(
+                width: screenWidth/2,
+                height: screenWidth/16,
+
+                child: Text(
+                  """
+               Entrar SEM LOGIN
+                 """,
+                  textAlign: TextAlign.start,
+
+                  style: TextStyle(
+                    fontSize: 16.4,
+                    fontFamily: 'Times News Roman',
+                    fontWeight: FontWeight.bold,
+
+                    //backgroundColor: Colors.lightBlueAccent.shade100,
+                  ),
+                ),
+              ),
+
+              onPressed: () {
+                Navigator.push( context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HomePage(title: 'Início',)
+                    )
+                );
+              },
+
+
+            ),
+
 
           )
 
