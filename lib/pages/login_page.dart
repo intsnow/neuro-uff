@@ -47,192 +47,153 @@ class _LoginPageState extends State<LoginPage>{
 
       ),
 
-      body: Stack(
+      body: Center(
+          child: SingleChildScrollView(
 
-        children: [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
 
-          Align(
-            alignment: Alignment(0,-1),
+              children: [
 
-            child: Image.asset('lib/assets/images/neuroUff_logo.png'),
+                Align(
+                  alignment: Alignment.topCenter,//Alignment(0,-1),
 
+                  child: Image.asset('lib/assets/images/neuroUff_logo.png'),
+                ),
 
+                SizedBox(
+                  height: 30,
+                ),
 
+                SizedBox(
+                  width: screenWidth/1.05,
 
-            ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Email",
+                        labelStyle: TextStyle(
+                          fontFamily: "Calibri",
+                          fontSize: 19,
 
-            Align(
-              alignment: Alignment.bottomCenter,
-
-              child:Container(
-                alignment: Alignment.bottomCenter,
-
-                  child: Align(
-                    alignment: Alignment(0,0.3),
-
-                    child: SizedBox(
-                      width: screenWidth/1.05,
-
-                        child: TextFormField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: "Email",
-                              labelStyle: TextStyle(
-                                fontFamily: "Calibri",
-                                fontSize: 19,
-
-                              ),
-
-                              prefixIcon: Icon(
-                                Icons.email,
-                              )
-
-                          ),
-                       ),
-                    )
-                  )
-              )
-            ),
-
-          Align(
-              alignment: Alignment.bottomCenter,
-
-              child:Container(
-                  alignment: Alignment.bottomCenter,
-
-                  child: Align(
-                      alignment: Alignment(0,0.49),
-
-                      child: SizedBox(
-                        width: screenWidth/1.05,
-
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: "Senha",
-                              labelStyle: TextStyle(
-                                  fontFamily: "calibri",
-                                  fontSize: 20
-                              ),
-
-                              prefixIcon: Icon(
-                                Icons.lock,
-                              )
-
-                          ),
                         ),
-                      )
-                  )
-              )
-          ),
 
-          Align(
-            alignment: Alignment(0,0.7),
-            
-            child: TextButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.lightBlueAccent.shade100),
-                overlayColor: WidgetStatePropertyAll(Colors.blueAccent.shade400),
-                foregroundColor: WidgetStatePropertyAll(Colors.deepPurpleAccent.shade400),
-              ),
+                        prefixIcon: Icon(
+                          Icons.email,
+                        )
 
-              child: SizedBox(
-                width: screenWidth/2,
-                height: screenWidth/18.7,
-
-                child: Text(
-                  "Login",
-                  textAlign: TextAlign.center,
-
-                  style: TextStyle(
-                    fontSize: 16.4,
-                    fontFamily: 'Times News Roman',
-                    fontWeight: FontWeight.bold,
-
-                    //backgroundColor: Colors.lightBlueAccent.shade100,
+                    ),
                   ),
                 ),
-              ),
 
-              onPressed: () {
-                Navigator.push( context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                      HomePage(title: 'Início',)
+                SizedBox(height: 8),
+
+                SizedBox(
+                  width: screenWidth/1.05,
+
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Senha",
+                        labelStyle: TextStyle(
+                            fontFamily: "calibri",
+                            fontSize: 20
+                        ),
+
+                        prefixIcon: Icon(
+                          Icons.lock,
+                        )
+
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 40),
+
+                SizedBox(
+                  width: screenWidth/1.08,
+                  height: screenHeight/12,
+
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blueAccent.shade700,
+                      overlayColor: Colors.blueAccent.shade400,
+                      foregroundColor: Colors.white,
+
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+
+                      //padding: EdgeInsets.all(screenWidth/100)
+                    ),
+
+                    child: Text(
+                      "Login",
+                      textAlign: TextAlign.center,
+
+                      style: TextStyle(
+                        fontSize: 16.4,
+                        fontFamily: 'Times News Roman',
+                      ),
+                    ),
+
+                    onPressed: () {
+                      Navigator.push( context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  HomePage(title: 'Início',)
+                          )
+                      );
+                    },
                   )
-                );
-              },
+                ),
 
+                SizedBox(height: 8),
 
+                SizedBox(
+                  width: screenWidth/1.08,
+                  height: screenHeight/12,
+
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.blueAccent.shade400,
+                        overlayColor: Colors.blueAccent.shade400,
+                        foregroundColor: Colors.white,
+
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6)
+                        ),
+                    ),
+
+                    child: Text(
+                      "Entrar SEM LOGIN",
+                      textAlign: TextAlign.center,
+
+                      style: TextStyle(
+                        fontSize: 16.4,
+                        fontFamily: 'Times News Roman',
+                      ),
+                    ),
+
+                    onPressed: () {
+                      Navigator.push( context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  HomePage(title: 'Início',)
+                          )
+                      );
+                    },
+                  ),
+                ),
+
+                SizedBox(height: 20,)
+
+              ],
             ),
 
           ),
-
-          Align(
-            alignment: Alignment(0, 0.84),
-
-            child: TextButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.lightBlueAccent.shade100),
-                overlayColor: WidgetStatePropertyAll(Colors.blueAccent.shade400),
-                foregroundColor: WidgetStatePropertyAll(Colors.deepPurpleAccent.shade400),
-                //padding: WidgetStateProperty<EdgeInsetsGeometry>.new
-
-              ),
-
-              child: SizedBox(
-                width: screenWidth/2,
-                height: screenWidth/16,
-
-                child: Text(
-                  """
-               Entrar SEM LOGIN
-                 """,
-                  textAlign: TextAlign.start,
-
-                  style: TextStyle(
-                    fontSize: 16.4,
-                    fontFamily: 'Times News Roman',
-                    fontWeight: FontWeight.bold,
-
-                    //backgroundColor: Colors.lightBlueAccent.shade100,
-                  ),
-                ),
-              ),
-
-              onPressed: () {
-                Navigator.push( context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            HomePage(title: 'Início',)
-                    )
-                );
-              },
-
-
-            ),
-
-
-          )
-
-
-
-
-        ],
-
-
-
-      ),
-
-
-
-
-
-
-
-
+        )
     );
-
 
   }
 
