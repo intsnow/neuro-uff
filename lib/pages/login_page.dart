@@ -55,10 +55,14 @@ class _LoginPageState extends State<LoginPage>{
 
               children: [
 
-                Align(
-                  alignment: Alignment.topCenter,//Alignment(0,-1),
+                Container(
+                  // Travando tamanho da imagem com 'height' e distorção em 'fit'
+                  height: screenHeight*0.25,
 
-                  child: Image.asset('lib/assets/images/neuroUff_logo.png'),
+                  child: Image.asset(
+                    'lib/assets/images/neuroUff_logo.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
 
                 SizedBox(
@@ -133,7 +137,7 @@ class _LoginPageState extends State<LoginPage>{
 
                       style: TextStyle(
                         fontSize: 16.4,
-                        fontFamily: 'Times News Roman',
+                        fontFamily: 'Arial',
                       ),
                     ),
 
@@ -171,7 +175,7 @@ class _LoginPageState extends State<LoginPage>{
 
                       style: TextStyle(
                         fontSize: 16.4,
-                        fontFamily: 'Times News Roman',
+                        fontFamily: 'Arial',
                       ),
                     ),
 
