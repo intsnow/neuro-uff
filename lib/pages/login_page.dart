@@ -2,9 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart' as fluIcon;
+import 'package:neuro_uff/assets/constants/colors_scheme.dart';
 import 'package:neuro_uff/pages/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-//import 'pages/home_page.dart';
+
 
 class LoginPage extends StatefulWidget{
 
@@ -32,20 +33,6 @@ class _LoginPageState extends State<LoginPage>{
     final String title = super.widget.title;
 
     return Scaffold(
-
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.lightBlueAccent.shade200,
-
-        title: Text(title),
-        titleTextStyle: TextStyle(
-          fontFamily: 'Calibri',
-          //fontStyle: FontStyle.italic,
-          fontSize: 20
-        ),
-
-
-      ),
 
       body: Center(
           child: SingleChildScrollView(
@@ -120,8 +107,8 @@ class _LoginPageState extends State<LoginPage>{
 
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.blueAccent.shade700,
-                      overlayColor: Colors.blueAccent.shade400,
+                      backgroundColor: ColorsScheme.neuroBlue,//Colors.blueAccent.shade700,
+                      overlayColor: ColorsScheme.neuroBlue,//Colors.blueAccent.shade400,
                       foregroundColor: Colors.white,
 
                       shape: RoundedRectangleBorder(
@@ -143,12 +130,17 @@ class _LoginPageState extends State<LoginPage>{
 
                     onPressed: () {
                       Navigator.push( context,
+
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  HomePage(title: 'Início',)
+                              builder: (context) => HomePage(
+                                title: 'Início',
+                                currentTheme: widget.currentTheme,
+                                onThemeChanged: widget.onThemeChanged,
+                             )
                           )
                       );
                     },
+
                   )
                 ),
 
@@ -160,9 +152,9 @@ class _LoginPageState extends State<LoginPage>{
 
                   child: TextButton(
                     style: TextButton.styleFrom(
-                        backgroundColor: Colors.blueAccent.shade400,
-                        overlayColor: Colors.blueAccent.shade400,
-                        foregroundColor: Colors.white,
+                        backgroundColor: ColorsScheme.neuroBlue,//Colors.blueAccent.shade400,
+                        overlayColor: ColorsScheme.neuroBlueLight,//Colors.blueAccent.shade400,
+                        foregroundColor: ColorsScheme.foregroundLight,
 
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)
@@ -183,10 +175,14 @@ class _LoginPageState extends State<LoginPage>{
                       Navigator.push( context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  HomePage(title: 'Início',)
+                                  HomePage(title: 'Início',
+                                      currentTheme: widget.currentTheme,
+                                      onThemeChanged: widget.onThemeChanged,
+                                  )
                           )
                       );
                     },
+
                   ),
                 ),
 

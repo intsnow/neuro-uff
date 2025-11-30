@@ -2,12 +2,21 @@
 import 'package:flutter/material.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart' as fluIcon;
 import 'package:flutter/rendering.dart';
+import 'package:neuro_uff/pages/login_page.dart';
 import 'package:neuro_uff/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+  const HomePage({super.key,
+    required this.title,
+    required this.currentTheme,
+    required this.onThemeChanged}
+    );
 
   final String title;
+
+  final dynamic currentTheme;
+
+  final dynamic onThemeChanged;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -27,6 +36,39 @@ class _HomePageState extends State<HomePage> {
 
       body: Stack(
         children: [
+
+          AppBar(
+            title: Align(
+              alignment: Alignment.center,
+
+                child: IconButton(
+                  icon: Text(
+                  "Ir pra LOGIN",
+
+                  style: TextStyle(
+                    fontSize: screenHeight*0.015,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+
+                onPressed: (){
+
+                  Navigator.push(
+                    context, MaterialPageRoute(
+                      builder: (context) => LoginPage(
+                          title: title,
+                          currentTheme: widget.currentTheme,
+                          onThemeChanged: widget.onThemeChanged
+                      )
+                    )
+                  );
+                },
+
+              )
+          )
+
+
+          ),
 
           // -----------------------------------------------------------
           // 1. CONTEÚDO CENTRAL SUPERIOR:  Icone 'home' + os dois textos
@@ -124,8 +166,13 @@ class _HomePageState extends State<HomePage> {
                         //  fora da tela que irá navegar.
                         if (context.widget is! HomePage ) {
                           Navigator.push(
+
                             context, MaterialPageRoute(
-                            builder: (context) => HomePage(title: title,)
+                              builder: (context) => HomePage(
+                                title: title,
+                                currentTheme: widget.currentTheme,
+                                onThemeChanged: widget.onThemeChanged,
+                             )
                             )
                           );
                         }
@@ -151,11 +198,17 @@ class _HomePageState extends State<HomePage> {
                         if (context.widget is! ProfilePage){
                           Navigator.push(
                               context, MaterialPageRoute(
-                              builder: (context) => ProfilePage(title: "Configurações de Perfil.", username: "",)
-                          )
+
+                                builder: (context) => ProfilePage(
+                                  title: "Configurações de Perfil.", userName: "",
+                                  currentTheme: widget.currentTheme,
+                                  onThemeChanged: widget.onThemeChanged,
+                                )
+                            )
                           );
                         }
                       },
+
                     )
                   ],
                 ),
