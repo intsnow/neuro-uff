@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart' as fluIcon;
 import 'package:flutter/rendering.dart';
+import 'package:neuro_uff/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -146,12 +147,15 @@ class _HomePageState extends State<HomePage> {
                           color: Color.fromRGBO(124, 156, 191, 1)
                       ),
 
-
                       onPressed: () {
-
-
+                        if (context.widget is! ProfilePage){
+                          Navigator.push(
+                              context, MaterialPageRoute(
+                              builder: (context) => ProfilePage(title: "Configurações de Perfil.", username: "",)
+                          )
+                          );
+                        }
                       },
-
                     )
                   ],
                 ),
@@ -163,6 +167,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
         ],
+
       ),
     );
   }
