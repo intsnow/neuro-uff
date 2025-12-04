@@ -12,15 +12,12 @@ class MyApp extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _MyAppState();
-
 }
 
-class _MyAppState extends State<MyApp>{
-
+class _MyAppState extends State<MyApp> {
   ThemeMode _themeMode = ThemeMode.light;
 
-  // This widget is the root of your application.
-
+  // This widget root do app.
   @override
   void initState() {
     super.initState();
@@ -66,8 +63,7 @@ class _MyAppState extends State<MyApp>{
           color: Colors.black,
           fontSize: 20,
           fontFamily: 'Arial',
-          fontWeight: FontWeight.bold
-      ),
+          fontWeight: FontWeight.bold),
     ),
     fontFamily: 'Arial',
   );
@@ -77,13 +73,11 @@ class _MyAppState extends State<MyApp>{
     brightness: Brightness.dark,
     scaffoldBackgroundColor: ColorsScheme.backgroundDark,
     primaryColor: ColorsScheme.neuroBlue,
-
     colorScheme: ColorScheme.dark(
       primary: ColorsScheme.neuroBlue,
       surface: Colors.grey.shade900,
       onSurface: ColorsScheme.textDark,
     ),
-
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xFF1E1E1E), // Um cinza escuro para a barra
       elevation: 0,
@@ -93,36 +87,25 @@ class _MyAppState extends State<MyApp>{
           color: Colors.white,
           fontSize: 20,
           fontFamily: 'Arial',
-          fontWeight: FontWeight.bold
-      ),
+          fontWeight: FontWeight.bold),
     ),
     fontFamily: 'Arial',
   );
 
-
-
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return MaterialApp(
         title: 'NeuroUFF',
-        debugShowCheckedModeBanner: false, //tira faixa de Debug
+        debugShowCheckedModeBanner: false, // Tira faixa de Debug
 
-        theme: _lightTheme,     // Tema Light personalizado
-        darkTheme: _darkTheme,  // Tema Dark personalizado
-        themeMode: _themeMode,  // Tema no estado atual (dark ou light)
+        theme: _lightTheme, // Tema Light personalizado
+        darkTheme: _darkTheme, // Tema Dark personalizado
+        themeMode: _themeMode, // Tema no estado atual (dark ou light)
 
         home: LoginPage(
-            title: 'Login',
-            currentTheme: _themeMode == ThemeMode.dark ? _darkTheme : _lightTheme,
-            onThemeChanged: _changeTheme,
-
-        )
-
-    );
+          title: 'Login',
+          currentTheme: _themeMode == ThemeMode.dark ? _darkTheme : _lightTheme,
+          onThemeChanged: _changeTheme,
+        ));
   }
-
 }
-
-
-
